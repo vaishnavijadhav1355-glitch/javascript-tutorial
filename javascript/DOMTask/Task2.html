@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Paragraph Color</title>
+</head>
+<body>
+
+    <p id="paragraph">This is a paragraph. Click a button to change my color.</p>
+
+    <button id="redBtn">Red</button>
+    <button id="greenBtn">Green</button>
+    <button id="blueBtn">Blue</button>
+
+    <script>
+        // Select the paragraph
+        const paragraph = document.querySelector("#paragraph");
+
+        // Select the buttons
+        const redBtn = document.querySelector("#redBtn");
+        const greenBtn = document.querySelector("#greenBtn");
+        const blueBtn = document.querySelector("#blueBtn");
+
+        // Change paragraph color when buttons are clicked
+        redBtn.addEventListener("click", function() {
+            paragraph.style.color = "red";
+        });
+
+        greenBtn.addEventListener("click", function() {
+            paragraph.style.color = "green";
+        });
+
+        blueBtn.addEventListener("click", function() {
+            paragraph.style.color = "blue";
+        });
+    </script>
+
+</body>
+</html>

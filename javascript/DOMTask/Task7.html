@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Counter</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+
+    textarea {
+      width: 400px;
+      height: 120px;
+      padding: 10px;
+      font-size: 16px;
+      resize: none;
+    }
+
+    #counter {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .warning {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Character Counter</h2>
+
+  <textarea id="message" maxlength="100"
+    placeholder="Type your message..."></textarea>
+
+  <div id="counter">
+    Characters: <span id="count">0</span> / 100
+  </div>
+
+  <script>
+    const textarea = document.getElementById("message");
+    const count = document.getElementById("count");
+    const counter = document.getElementById("counter");
+
+    textarea.addEventListener("input", function () {
+      const length = textarea.value.length;
+
+      count.textContent = length;
+
+      // Warning when fewer than 10 characters remain
+      if (100 - length < 10) {
+        counter.classList.add("warning");
+      } else {
+        counter.classList.remove("warning");
+      }
+    });
+  </script>
+
+</body>
+</html>

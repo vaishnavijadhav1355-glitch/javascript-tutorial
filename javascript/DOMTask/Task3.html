@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show / Hide Message</title>
+</head>
+<body>
+
+    <p id="message">This is my secret message!</p>
+
+    <button id="showBtn">Show</button>
+    <button id="hideBtn">Hide</button>
+
+    <script>
+        // Select the message and buttons
+        const message = document.querySelector("#message");
+        const showBtn = document.querySelector("#showBtn");
+        const hideBtn = document.querySelector("#hideBtn");
+
+        // Show the message
+        showBtn.addEventListener("click", function() {
+            message.style.display = "block";
+        });
+
+        // Hide the message
+        hideBtn.addEventListener("click", function() {
+            message.style.display = "none";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        form {
+            width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .success {
+            color: green;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form id="registrationForm">
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name">
+            <div id="nameError" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email">
+            <div id="emailError" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password">
+            <div id="passwordError" class="error"></div>
+        </div>
+
+        <button type="submit">Register</button>
+
+        <div id="successMessage" class="success"></div>
+
+    </form>
+
+    <script>
+        const form = document.getElementById("registrationForm");
+
+        form.addEventListener("submit", function(event) {
+            // Prevent page from reloading
+            event.preventDefault();
+
+            // Get values
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            // Error elements
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+            const passwordError = document.getElementById("passwordError");
+            const successMessage = document.getElementById("successMessage");
+
+            // Clear previous messages
+            nameError.textContent = "";
+            emailError.textContent = "";
+            passwordError.textContent = "";
+            successMessage.textContent = "";
+
+            let isValid = true;
+
+            // Name validation
+            if (name === "") {
+                nameError.textContent = "Name cannot be empty.";
+                isValid = false;
+            }
+
+            // Email validation
+            if (email === "") {
+                emailError.textContent = "Email cannot be empty.";
+                isValid = false;
+            }
+
+            // Password validation
+            if (password === "") {
+                passwordError.textContent = "Password cannot be empty.";
+                isValid = false;
+            } else if (password.length < 6) {
+                passwordError.textContent =
+                    "Password must contain at least 6 characters.";
+                isValid = false;
+            }
+
+            // If everything is valid
+            if (isValid) {
+                successMessage.textContent = "Registration Successful!";
+
+                // Optional: clear the form
+                form.reset();
+            }
+        });
+    </script>
+
+</body>
+</html>
