@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Search Page -->
+    <div class="search-box" id="searchBox">
+
+        <h2>Weather App</h2>
+
+        <div class="search">
+            <input type="text" id="city" placeholder="Enter city name">
+            <button onclick="searchWeather()">Search</button>
+        </div>
+
+        <div class="or">
+            <span></span>
+            or
+            <span></span>
+        </div>
+
+        <button class="location-btn" onclick="getLocation()">
+            Get Device Location
+        </button>
+
+    </div>
+
+
+    <!-- Weather Page -->
+    <div class="weather-box" id="weatherBox">
+
+        <div class="top">
+            <button onclick="goBack()">←</button>
+            <h2>Weather App</h2>
+        </div>
+
+        <div id="weather"></div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
